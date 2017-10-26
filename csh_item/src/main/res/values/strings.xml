@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CaoShaoHangitem</string>
+    <string name="set">设置</string>
+    <string name="unlogin">未登录</string>
+</resources>
