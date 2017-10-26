@@ -1,4 +1,5 @@
 package com.example.csh_demo2;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Xrecycler= (XRecyclerView) findViewById(R.id.Xrcycler);
         Xrecycler.setLayoutManager(new LinearLayoutManager(this));
         Xrecycler.addItemDecoration(new MyDecoration(this,MyDecoration.VERTICAL_LIST));
+
         Xrecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
@@ -38,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 },2000);
             }
-
             @Override
             public void onLoadMore() {
 
@@ -56,9 +57,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onUi(Bean bean) {
                 List<Bean.StoriesBean> stories = bean.getStories();
-
+                //子条目点击
                 MyAdapter adapter = new MyAdapter(MainActivity.this,stories);
                 Xrecycler.setAdapter(adapter);
+
+                adapter.setOnRecyclerListener(new MyAdapter.OnRecyclerListener() {
+                    @Override
+                    public void onRecycle(int position) {
+                        Intent intent=new Intent(MainActivity.this,Main2Activity.class);
+                        startActivity(intent);
+
+                    }
+                });
             }
             @Override
             public void onFailed(Call call, IOException e) {

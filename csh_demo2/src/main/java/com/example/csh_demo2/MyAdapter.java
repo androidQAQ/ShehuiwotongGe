@@ -35,7 +35,14 @@ public class MyAdapter extends XRecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.item,null);
-        MyViewHolder holder=new MyViewHolder(view);
+        final MyViewHolder holder=new MyViewHolder(view);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onRecyclerListener.onRecycle(holder.getPosition());
+            }
+        });
+
         return holder;
     }
 
@@ -57,4 +64,18 @@ public class MyAdapter extends XRecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         }
     }
+
+    /**
+     * 自定义接口回调 设置监听
+     */
+    private OnRecyclerListener onRecyclerListener;
+
+    public interface OnRecyclerListener{
+        void onRecycle(int position);
+    }
+
+    public void setOnRecyclerListener(OnRecyclerListener onRecyclerListener) {
+        this.onRecyclerListener = onRecyclerListener;
+    }
+
 }
