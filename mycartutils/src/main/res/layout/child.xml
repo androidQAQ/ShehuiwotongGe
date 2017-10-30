@@ -33,7 +33,7 @@
             android:layout_weight="1"
             android:layout_marginRight="10dp"
             android:maxLines="2"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:layout_marginTop="10dp"
             />
         <LinearLayout
@@ -49,7 +49,7 @@
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:gravity="center_vertical"
                 android:textColor="#ff8100"
                 />
@@ -57,13 +57,13 @@
                 android:id="@+id/amount_view"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                app:btnTextSize="14sp"
+                app:btnTextSize="13sp"
                 android:gravity="center"
-                app:btnWidth="36dp"
+                app:btnWidth="20dp"
                 android:layout_marginBottom="5dp"
-                app:tvWidth="50dp"></com.bwie.mycartutils.utils.Jiajianqi>
+                app:tvWidth="30dp"></com.bwie.mycartutils.utils.Jiajianqi>
         </LinearLayout>
     </LinearLayout>
 
